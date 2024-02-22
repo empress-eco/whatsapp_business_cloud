@@ -1,82 +1,71 @@
-## WhatsApp Business API Integration
+<div align="center">
+<img src="https://grow.empress.eco/uploads/default/original/2X/1/1f1e1044d3864269d2a613577edb9763890422ab.png" alt="Project Logo">
+<h1 align="center">Empower Your Business Communication with Automated WhatsApp Messaging</h1>
+<p align="center">
+An advanced integration tool to automate sending and receiving of WhatsApp messages directly from your Empress site.
+<br />
+<a href="https://empress.eco/">Visit our Website</a>
+·
+<a href="https://grow.empress.eco/">Get Support</a>
+·
+<a href="https://github.com/empress-eco/whatsapp_business_cloud/issues">Report a Bug</a>
+·
+<a href="https://github.com/empress-eco/whatsapp_business_cloud/issues">Request a Feature</a>
+</p>
+</div>
 
-Work with WhatsApp Business Cloud API from your Frappe site. Automate sending and releasing of WhatsApp messages.
+## About The Project
 
-## Installation
+WhatsApp Business Cloud API Integration is a powerful and robust tool that empowers businesses to automate sending and receiving of WhatsApp messages directly from their Empress site. This tool is designed with a user-centric approach to facilitate businesses in streamlining their communication with customers through WhatsApp.
 
-```bash
-bench get-app waba_integration
-bench --site <site-name> install-app waba_integration
-```
-
-If you want to install on Frappe Cloud, presently, you can fork and add it to your private bench.
+### Key Features
+- **Automate WhatsApp Messaging:** Send and receive WhatsApp messages automatically from your site.
+- **Webhook Configuration:** Configure webhooks for efficient message tracking.
+- **Debugging and Webhook Logs:** Gain transparency and control over your communication with detailed logs.
 
 ## Getting Started
 
-In order to set up the app, you will need to first setup developer assets and get credentials from the **Meta Developer Portal**. You can do so by following [this guide](https://developers.facebook.com/docs/whatsapp/cloud-api/get-started#set-up-developer-assets).
+### Technical Stack and Setup Instructions
 
-In developer mode, if you want to send a message to a number, you have to explicitly add it (also verified by an OTP) to the recipient's list:
+This tool is built on the Framework and uses the WhatsApp Business Cloud API for integration. To install and setup this tool, you need a Empress site and developer assets and credentials from the Meta Developer Portal.
 
-![](images/recipient_to_development_mode.png)
+#### Installation
 
-![](images/add_recipient_phone_number.png)
+Follow these steps to install the application on your Empress site:
 
-Now, try sending a test message from the developer dashboard by clicking the `Send Message` button:
+```sh
+# Clone the repository
+git clone https://github.com/empress-eco/whatsapp_business_cloud.git
 
-![](images/api_getting_started.png)
+# Navigate to the cloned repository
+cd whatsapp_business_cloud
 
-If you received the message, you are set!
-
-### Configuring Webhook
-
-Step 1:
-
-![Alt text](images/configure_webhooks.png)
-
-Step 2:
-
-![Alt text](images/conf_webhook_2.png)
-
-Step 3:
-
-![Alt text](images/conf_webhook_3.png)
-
-The callback URL will be:
-
-```
-<your-site-base-url>/api/method/waba_integration.api.webhook.handle
+# Install the app on your site
+bench --site <your-site-name> install-app waba_integration
 ```
 
-For instance:
+### Usage
 
-```
-https://hussain.frappe.cloud/api/method/waba_integration.api.webhook.handle
-```
+After setting up the app and configuring the webhook, you are ready to send your first message using the **WABA WhatsApp Message** doctype. You can also use the **WABA Webhook Log** for debugging and building your own integrations.
 
-You can set the verify token to any random string, but remember it, since we will need it in the next step.
+For detailed usage instructions, including setting up webhook and generating a permanent token, please refer to the [full project documentation](https://grow.empress.eco/).
 
-> Note: For working with webhooks in the development environment, you will need to use ngrok to proxy the webhooks to your local.
+## Contribution Guidelines
 
-## Setting up the app
+We welcome contributions! If you're interested in enhancing the tool or fixing bugs, follow these steps:
 
-Open `WABA Settings` form and fill in the credentials you obtained in the last step from the Meta developer console:
+- Fork the Project
+- Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+- Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+- Push to the Branch (`git push origin feature/AmazingFeature`)
+- Open a Pull Request
 
-![Alt text](images/waba_settings.png)
+## License and Acknowledgements
 
-The **Webhook Verify Token** must be same as the verify token you set in the developer console's webhook configuration in the previous step.
+### License
 
-### Permanent Token / Production Setup
+This project is licensed under the MIT License. Your contributions will also be licensed under the MIT License.
 
-The temporary token generated above is only valid for 24 hours and is only suitable for development. In order to generate a permanent token, please refer [this](https://developers.facebook.com/docs/whatsapp/business-management-api/get-started#1--acquire-an-access-token-using-a-system-user-or-facebook-login) guide.
+### Acknowledgements
 
-## Sending Your First Message
-
-You can use the **WABA WhatsApp Message** doctype to create and send messages. Whenever you receive a new message, you will find it here.
-
-## Debugging / Webhook Logs
-
-Use the **WABA Webhook Log** to see all the webhooks received from WhatsApp Cloud API. You can use this for debugging and also you can write hooks on top of it to build your own integrations.
-
-#### License
-
-MIT
+We extend our heartfelt gratitude to the Empress Community for their foundational contributions to the tools that power this project. Their innovation and dedication have been instrumental in building the functionalities we rely on. We are profoundly grateful for their pioneering work and ongoing support.
